@@ -1,9 +1,7 @@
-﻿/* Programmer: Blake Murdock (200260568)
- * Due Date: October 10th, 2014
- * Purpose: This program will take a car's sale price, add any additional chosen options and tax to the total, 
- * subtract the trade-in value, and ouput the total cost.
+﻿/* Name: Chandra Gundam(200275643)
+ * Date: Oct 1 2016
+ 
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +217,41 @@ namespace AutoCentre
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             selectedRadioButton = (RadioButton)sender;
+        }
+
+        private void accessoriesFinishLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void carSalesPriceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salesTaxLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tradeInAllowanceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subtotalLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void amountDueLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -32,8 +32,6 @@
             this.calculateButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.authorLabel = new System.Windows.Forms.Label();
             this.accessoriesGroupBox = new System.Windows.Forms.GroupBox();
             this.stereoSystemCheckBox = new System.Windows.Forms.CheckBox();
             this.leatherInteriorCheckBox = new System.Windows.Forms.CheckBox();
@@ -42,8 +40,8 @@
             this.customizedDetailingRadioButton = new System.Windows.Forms.RadioButton();
             this.peralizedRadioButton = new System.Windows.Forms.RadioButton();
             this.standardRadioButton = new System.Windows.Forms.RadioButton();
-            this.carSalesPriceLabel = new System.Windows.Forms.Label();
-            this.accessoriesFinishLabel = new System.Windows.Forms.Label();
+            this.BasePriceLabel = new System.Windows.Forms.Label();
+            this.AdditionalOptionsLabel = new System.Windows.Forms.Label();
             this.subtotalLabel = new System.Windows.Forms.Label();
             this.salesTaxLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -63,7 +61,7 @@
             // 
             // calculateButton
             // 
-            this.calculateButton.Location = new System.Drawing.Point(308, 419);
+            this.calculateButton.Location = new System.Drawing.Point(19, 328);
             this.calculateButton.Name = "calculateButton";
             this.calculateButton.Size = new System.Drawing.Size(75, 23);
             this.calculateButton.TabIndex = 6;
@@ -73,7 +71,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(413, 419);
+            this.clearButton.Location = new System.Drawing.Point(133, 328);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 7;
@@ -84,7 +82,7 @@
             // exitButton
             // 
             this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.exitButton.Location = new System.Drawing.Point(518, 419);
+            this.exitButton.Location = new System.Drawing.Point(242, 328);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 8;
@@ -92,34 +90,14 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(243, 37);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(152, 24);
-            this.titleLabel.TabIndex = 19;
-            this.titleLabel.Text = "C# Auto Centre";
-            // 
-            // authorLabel
-            // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
-            this.authorLabel.Location = new System.Drawing.Point(512, 455);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(114, 17);
-            this.authorLabel.TabIndex = 20;
-            this.authorLabel.Text = "Blake Murdock";
-            // 
             // accessoriesGroupBox
             // 
             this.accessoriesGroupBox.Controls.Add(this.stereoSystemCheckBox);
             this.accessoriesGroupBox.Controls.Add(this.leatherInteriorCheckBox);
             this.accessoriesGroupBox.Controls.Add(this.computerNavigationCheckBox);
-            this.accessoriesGroupBox.Location = new System.Drawing.Point(12, 80);
+            this.accessoriesGroupBox.Location = new System.Drawing.Point(253, 28);
             this.accessoriesGroupBox.Name = "accessoriesGroupBox";
-            this.accessoriesGroupBox.Size = new System.Drawing.Size(200, 143);
+            this.accessoriesGroupBox.Size = new System.Drawing.Size(136, 128);
             this.accessoriesGroupBox.TabIndex = 4;
             this.accessoriesGroupBox.TabStop = false;
             this.accessoriesGroupBox.Text = "Accessories";
@@ -162,9 +140,9 @@
             this.exteriorFinishGroupBox.Controls.Add(this.customizedDetailingRadioButton);
             this.exteriorFinishGroupBox.Controls.Add(this.peralizedRadioButton);
             this.exteriorFinishGroupBox.Controls.Add(this.standardRadioButton);
-            this.exteriorFinishGroupBox.Location = new System.Drawing.Point(12, 242);
+            this.exteriorFinishGroupBox.Location = new System.Drawing.Point(253, 182);
             this.exteriorFinishGroupBox.Name = "exteriorFinishGroupBox";
-            this.exteriorFinishGroupBox.Size = new System.Drawing.Size(200, 154);
+            this.exteriorFinishGroupBox.Size = new System.Drawing.Size(136, 140);
             this.exteriorFinishGroupBox.TabIndex = 5;
             this.exteriorFinishGroupBox.TabStop = false;
             this.exteriorFinishGroupBox.Text = "Exterior Finish";
@@ -172,6 +150,7 @@
             // customizedDetailingRadioButton
             // 
             this.customizedDetailingRadioButton.AutoSize = true;
+            this.customizedDetailingRadioButton.Checked = true;
             this.customizedDetailingRadioButton.Location = new System.Drawing.Point(6, 117);
             this.customizedDetailingRadioButton.Name = "customizedDetailingRadioButton";
             this.customizedDetailingRadioButton.Size = new System.Drawing.Size(123, 17);
@@ -189,7 +168,6 @@
             this.peralizedRadioButton.Name = "peralizedRadioButton";
             this.peralizedRadioButton.Size = new System.Drawing.Size(68, 17);
             this.peralizedRadioButton.TabIndex = 1;
-            this.peralizedRadioButton.TabStop = true;
             this.peralizedRadioButton.Text = "&Pearlized";
             this.toolTip1.SetToolTip(this.peralizedRadioButton, "Click to add Pearlized Exterior Finish to your car");
             this.peralizedRadioButton.UseVisualStyleBackColor = true;
@@ -202,133 +180,139 @@
             this.standardRadioButton.Name = "standardRadioButton";
             this.standardRadioButton.Size = new System.Drawing.Size(68, 17);
             this.standardRadioButton.TabIndex = 0;
-            this.standardRadioButton.TabStop = true;
             this.standardRadioButton.Text = "S&tandard";
             this.toolTip1.SetToolTip(this.standardRadioButton, "Click to add Standard Exterior Finish to your car");
             this.standardRadioButton.UseVisualStyleBackColor = true;
             this.standardRadioButton.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // carSalesPriceLabel
+            // BasePriceLabel
             // 
-            this.carSalesPriceLabel.AutoSize = true;
-            this.carSalesPriceLabel.Location = new System.Drawing.Point(368, 93);
-            this.carSalesPriceLabel.Name = "carSalesPriceLabel";
-            this.carSalesPriceLabel.Size = new System.Drawing.Size(82, 13);
-            this.carSalesPriceLabel.TabIndex = 0;
-            this.carSalesPriceLabel.Text = "C&ar Sales Price:";
+            this.BasePriceLabel.AutoSize = true;
+            this.BasePriceLabel.Location = new System.Drawing.Point(30, 43);
+            this.BasePriceLabel.Name = "BasePriceLabel";
+            this.BasePriceLabel.Size = new System.Drawing.Size(55, 13);
+            this.BasePriceLabel.TabIndex = 0;
+            this.BasePriceLabel.Text = "BasePrice";
+            this.BasePriceLabel.Click += new System.EventHandler(this.carSalesPriceLabel_Click);
             // 
-            // accessoriesFinishLabel
+            // AdditionalOptionsLabel
             // 
-            this.accessoriesFinishLabel.AutoSize = true;
-            this.accessoriesFinishLabel.Location = new System.Drawing.Point(348, 139);
-            this.accessoriesFinishLabel.Name = "accessoriesFinishLabel";
-            this.accessoriesFinishLabel.Size = new System.Drawing.Size(106, 13);
-            this.accessoriesFinishLabel.TabIndex = 9;
-            this.accessoriesFinishLabel.Text = "Accessories && Finish:";
+            this.AdditionalOptionsLabel.AutoSize = true;
+            this.AdditionalOptionsLabel.Location = new System.Drawing.Point(10, 75);
+            this.AdditionalOptionsLabel.Name = "AdditionalOptionsLabel";
+            this.AdditionalOptionsLabel.Size = new System.Drawing.Size(92, 13);
+            this.AdditionalOptionsLabel.TabIndex = 9;
+            this.AdditionalOptionsLabel.Text = "Additional Options";
+            this.AdditionalOptionsLabel.Click += new System.EventHandler(this.accessoriesFinishLabel_Click);
             // 
             // subtotalLabel
             // 
             this.subtotalLabel.AutoSize = true;
-            this.subtotalLabel.Location = new System.Drawing.Point(401, 185);
+            this.subtotalLabel.Location = new System.Drawing.Point(39, 119);
             this.subtotalLabel.Name = "subtotalLabel";
-            this.subtotalLabel.Size = new System.Drawing.Size(49, 13);
+            this.subtotalLabel.Size = new System.Drawing.Size(46, 13);
             this.subtotalLabel.TabIndex = 11;
-            this.subtotalLabel.Text = "Subtotal:";
+            this.subtotalLabel.Text = "Subtotal";
+            this.subtotalLabel.Click += new System.EventHandler(this.subtotalLabel_Click);
             // 
             // salesTaxLabel
             // 
             this.salesTaxLabel.AutoSize = true;
-            this.salesTaxLabel.Location = new System.Drawing.Point(364, 231);
+            this.salesTaxLabel.Location = new System.Drawing.Point(20, 157);
             this.salesTaxLabel.Name = "salesTaxLabel";
             this.salesTaxLabel.Size = new System.Drawing.Size(86, 13);
             this.salesTaxLabel.TabIndex = 13;
             this.salesTaxLabel.Text = "Sales Tax (15%):";
+            this.salesTaxLabel.Click += new System.EventHandler(this.salesTaxLabel_Click);
             // 
             // totalLabel
             // 
             this.totalLabel.AutoSize = true;
-            this.totalLabel.Location = new System.Drawing.Point(416, 277);
+            this.totalLabel.Location = new System.Drawing.Point(46, 198);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(34, 13);
+            this.totalLabel.Size = new System.Drawing.Size(31, 13);
             this.totalLabel.TabIndex = 15;
-            this.totalLabel.Text = "Total:";
+            this.totalLabel.Text = "Total";
+            this.totalLabel.Click += new System.EventHandler(this.totalLabel_Click);
             // 
             // tradeInAllowanceLabel
             // 
             this.tradeInAllowanceLabel.AutoSize = true;
-            this.tradeInAllowanceLabel.Location = new System.Drawing.Point(348, 323);
+            this.tradeInAllowanceLabel.Location = new System.Drawing.Point(12, 242);
             this.tradeInAllowanceLabel.Name = "tradeInAllowanceLabel";
-            this.tradeInAllowanceLabel.Size = new System.Drawing.Size(102, 13);
+            this.tradeInAllowanceLabel.Size = new System.Drawing.Size(99, 13);
             this.tradeInAllowanceLabel.TabIndex = 2;
-            this.tradeInAllowanceLabel.Text = "T&rade-In Allowance:";
+            this.tradeInAllowanceLabel.Text = "T&rade-In Allowance";
+            this.tradeInAllowanceLabel.Click += new System.EventHandler(this.tradeInAllowanceLabel_Click);
             // 
             // amountDueLabel
             // 
             this.amountDueLabel.AutoSize = true;
-            this.amountDueLabel.Location = new System.Drawing.Point(381, 369);
+            this.amountDueLabel.Location = new System.Drawing.Point(29, 283);
             this.amountDueLabel.Name = "amountDueLabel";
-            this.amountDueLabel.Size = new System.Drawing.Size(69, 13);
+            this.amountDueLabel.Size = new System.Drawing.Size(66, 13);
             this.amountDueLabel.TabIndex = 17;
-            this.amountDueLabel.Text = "Amount Due:";
+            this.amountDueLabel.Text = "Amount Due";
+            this.amountDueLabel.Click += new System.EventHandler(this.amountDueLabel_Click);
             // 
             // carSalesPriceTextBox
             // 
-            this.carSalesPriceTextBox.Location = new System.Drawing.Point(471, 90);
+            this.carSalesPriceTextBox.Location = new System.Drawing.Point(119, 40);
             this.carSalesPriceTextBox.Name = "carSalesPriceTextBox";
-            this.carSalesPriceTextBox.Size = new System.Drawing.Size(155, 20);
+            this.carSalesPriceTextBox.Size = new System.Drawing.Size(103, 20);
             this.carSalesPriceTextBox.TabIndex = 1;
             this.toolTip1.SetToolTip(this.carSalesPriceTextBox, "How much the car is selling for");
             // 
             // accessoriesFinishTextBox
             // 
-            this.accessoriesFinishTextBox.Location = new System.Drawing.Point(471, 136);
+            this.accessoriesFinishTextBox.Location = new System.Drawing.Point(119, 75);
             this.accessoriesFinishTextBox.Name = "accessoriesFinishTextBox";
             this.accessoriesFinishTextBox.ReadOnly = true;
-            this.accessoriesFinishTextBox.Size = new System.Drawing.Size(155, 20);
+            this.accessoriesFinishTextBox.Size = new System.Drawing.Size(103, 20);
             this.accessoriesFinishTextBox.TabIndex = 10;
             this.accessoriesFinishTextBox.TabStop = false;
             // 
             // subtotalTextBox
             // 
-            this.subtotalTextBox.Location = new System.Drawing.Point(471, 182);
+            this.subtotalTextBox.Location = new System.Drawing.Point(119, 116);
             this.subtotalTextBox.Name = "subtotalTextBox";
             this.subtotalTextBox.ReadOnly = true;
-            this.subtotalTextBox.Size = new System.Drawing.Size(155, 20);
+            this.subtotalTextBox.Size = new System.Drawing.Size(103, 20);
             this.subtotalTextBox.TabIndex = 12;
             this.subtotalTextBox.TabStop = false;
             // 
             // salesTaxTextBox
             // 
-            this.salesTaxTextBox.Location = new System.Drawing.Point(471, 228);
+            this.salesTaxTextBox.Location = new System.Drawing.Point(119, 157);
             this.salesTaxTextBox.Name = "salesTaxTextBox";
             this.salesTaxTextBox.ReadOnly = true;
-            this.salesTaxTextBox.Size = new System.Drawing.Size(155, 20);
+            this.salesTaxTextBox.Size = new System.Drawing.Size(103, 20);
             this.salesTaxTextBox.TabIndex = 14;
             this.salesTaxTextBox.TabStop = false;
             // 
             // totalTextBox
             // 
-            this.totalTextBox.Location = new System.Drawing.Point(471, 274);
+            this.totalTextBox.Location = new System.Drawing.Point(119, 198);
             this.totalTextBox.Name = "totalTextBox";
             this.totalTextBox.ReadOnly = true;
-            this.totalTextBox.Size = new System.Drawing.Size(155, 20);
+            this.totalTextBox.Size = new System.Drawing.Size(103, 20);
             this.totalTextBox.TabIndex = 16;
             this.totalTextBox.TabStop = false;
             // 
             // tradeInAllowanceTextBox
             // 
-            this.tradeInAllowanceTextBox.Location = new System.Drawing.Point(471, 320);
+            this.tradeInAllowanceTextBox.Location = new System.Drawing.Point(119, 239);
             this.tradeInAllowanceTextBox.Name = "tradeInAllowanceTextBox";
-            this.tradeInAllowanceTextBox.Size = new System.Drawing.Size(155, 20);
+            this.tradeInAllowanceTextBox.Size = new System.Drawing.Size(103, 20);
             this.tradeInAllowanceTextBox.TabIndex = 3;
             this.toolTip1.SetToolTip(this.tradeInAllowanceTextBox, "How much the car you are trading in is worth");
             // 
             // amountDueTextBox
             // 
-            this.amountDueTextBox.Location = new System.Drawing.Point(471, 366);
+            this.amountDueTextBox.Location = new System.Drawing.Point(119, 280);
             this.amountDueTextBox.Name = "amountDueTextBox";
             this.amountDueTextBox.ReadOnly = true;
-            this.amountDueTextBox.Size = new System.Drawing.Size(155, 20);
+            this.amountDueTextBox.Size = new System.Drawing.Size(103, 20);
             this.amountDueTextBox.TabIndex = 18;
             this.amountDueTextBox.TabStop = false;
             // 
@@ -338,7 +322,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.exitButton;
-            this.ClientSize = new System.Drawing.Size(638, 481);
+            this.ClientSize = new System.Drawing.Size(389, 353);
             this.Controls.Add(this.amountDueTextBox);
             this.Controls.Add(this.tradeInAllowanceTextBox);
             this.Controls.Add(this.totalTextBox);
@@ -351,12 +335,10 @@
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.salesTaxLabel);
             this.Controls.Add(this.subtotalLabel);
-            this.Controls.Add(this.accessoriesFinishLabel);
-            this.Controls.Add(this.carSalesPriceLabel);
+            this.Controls.Add(this.AdditionalOptionsLabel);
+            this.Controls.Add(this.BasePriceLabel);
             this.Controls.Add(this.exteriorFinishGroupBox);
             this.Controls.Add(this.accessoriesGroupBox);
-            this.Controls.Add(this.authorLabel);
-            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.calculateButton);
@@ -380,8 +362,6 @@
         private System.Windows.Forms.Button calculateButton;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label authorLabel;
         private System.Windows.Forms.GroupBox accessoriesGroupBox;
         private System.Windows.Forms.CheckBox stereoSystemCheckBox;
         private System.Windows.Forms.CheckBox leatherInteriorCheckBox;
@@ -390,8 +370,8 @@
         private System.Windows.Forms.RadioButton customizedDetailingRadioButton;
         private System.Windows.Forms.RadioButton peralizedRadioButton;
         private System.Windows.Forms.RadioButton standardRadioButton;
-        private System.Windows.Forms.Label carSalesPriceLabel;
-        private System.Windows.Forms.Label accessoriesFinishLabel;
+        private System.Windows.Forms.Label BasePriceLabel;
+        private System.Windows.Forms.Label AdditionalOptionsLabel;
         private System.Windows.Forms.Label subtotalLabel;
         private System.Windows.Forms.Label salesTaxLabel;
         private System.Windows.Forms.Label totalLabel;

@@ -44,16 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoCentre.cs">
+    <Compile Include="SharpAutoForm.cs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutoCentre.Designer.cs">
-      <DependentUpon>AutoCentre.cs</DependentUpon>
+    <Compile Include="SharpAutoForm.cs.Designer.cs">
+      <DependentUpon>SharpAutoForm.cs.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AutoCentre.resx">
-      <DependentUpon>AutoCentre.cs</DependentUpon>
+    <EmbeddedResource Include="SharpAutoForm.cs.resx">
+      <DependentUpon>SharpAutoForm.cs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
