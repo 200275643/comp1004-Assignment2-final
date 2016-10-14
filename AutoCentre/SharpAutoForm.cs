@@ -266,7 +266,32 @@ namespace AutoCentre
 
         private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            calculateButton_Click(sender, e);// BackButton_Click(sender, e);
+        }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult returnDialogResult;
+
+            returnDialogResult = MessageBox.Show("Clear the Auto Centre?", "Clear the Auto Centre?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            // If the user clicks yes, return all fields to default state
+            if (returnDialogResult == DialogResult.Yes)
+            {
+                tradeInAllowanceTextBox.Text = "0.00";
+                standardRadioButton.Checked = true;
+                carSalesPriceTextBox.Clear();
+                accessoriesFinishTextBox.Clear();
+                subtotalTextBox.Clear();
+                salesTaxTextBox.Clear();
+                totalTextBox.Clear();
+                amountDueTextBox.Clear();
+                stereoSystemCheckBox.Checked = false;
+                leatherInteriorCheckBox.Checked = false;
+                computerNavigationCheckBox.Checked = false;
+                carSalesPriceTextBox.Select();
+                carSalesPriceTextBox.Focus();
+            }
         }
     }
 }
