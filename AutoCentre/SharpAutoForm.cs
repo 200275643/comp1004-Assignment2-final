@@ -293,5 +293,26 @@ namespace AutoCentre
                 carSalesPriceTextBox.Focus();
             }
         }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+            dlg.ShowDialog();
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+            dlg.ShowDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string fontName;
+                float fontSize;
+                fontName = dlg.Font.Name;
+                fontSize = dlg.Font.Size;
+                MessageBox.Show(fontName + "    " + fontSize);
+            }
+        }
     }
 }
