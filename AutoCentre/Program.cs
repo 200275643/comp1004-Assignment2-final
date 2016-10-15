@@ -16,7 +16,7 @@ namespace AutoCentre
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new autoCentreForm());
+            Application.Run(new SplashForm());
         }
     }
 }

@@ -6,16 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AutoCentre.Properties;
 
 namespace AutoCentre
 {
     public partial class autoCentreForm : Form
     {
+        
         // Constant Variables
         const decimal TAX_RATE_Decimal = .15m;
         // Accessories
@@ -32,7 +35,11 @@ namespace AutoCentre
         public autoCentreForm()
         {
             InitializeComponent();
+
+        
         }
+
+        
 
         /**
          * This method will load the initial values into each textbox.
@@ -264,6 +271,21 @@ namespace AutoCentre
             MessageBox.Show("This Program Calculates the Amount Due on New or Used Vehicles");
         }
 
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                amountDueTextBox.Font = new Font("Times", 10, FontStyle.Bold);
+                carSalesPriceTextBox.Font = new Font("Times", 10, FontStyle.Bold);
+            }
+        }
+
+        private void colourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            carSalesPriceTextBox.BackColor = Color.Red;
+            amountDueTextBox.BackColor = Color.Red;
+
+        }
+
         private void calculateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             calculateButton_Click(sender, e);
@@ -275,25 +297,8 @@ namespace AutoCentre
            
         }
 
-        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ColorDialog dlg = new ColorDialog();
-            dlg.ShowDialog();
-        }
+       
 
-        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FontDialog dlg = new FontDialog();
-            dlg.ShowDialog();
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                string fontName;
-                float fontSize;
-                fontName = dlg.Font.Name;
-                fontSize = dlg.Font.Size;
-                MessageBox.Show(fontName + "    " + fontSize);
-            }
-        }
+        
     }
 }
